@@ -12,16 +12,17 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
-    public Job() { //9.8.23
+    public Job() { //Constructor #1
         id = nextId;
         nextId++;
     }
 
     public Job (String name, Employer employer, Location location, PositionType positionType,
-                CoreCompetency coreCompetency) { //9.8.23
+                CoreCompetency coreCompetency) {  //Constructor #2
         this();
         this.name = name;
         this.employer = employer;
@@ -32,7 +33,6 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
-
     @Override //9.8.23
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,7 +49,6 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
-
     public int getId() {//9.8.23 Lines 54 - 95
         return id;
     }
@@ -92,4 +91,18 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString() {
+        String newline = System.lineSeparator();
+        String idString = "ID: " + id + newline;
+        String nameString = "Name: " + (name != null && !name.isEmpty() ? name : "Data not available") + newline;
+        String employerString = "Employer: " + (employer != null && !employer.getValue().isEmpty() ? employer.getValue() : "Data not available") + newline;
+        String locationString = "Location: " + (location != null && !location.getValue().isEmpty() ? location.getValue() : "Data not available") + newline;
+        String positionTypeString = "Position Type: " + (positionType != null && !positionType.getValue().isEmpty() ? positionType.getValue() : "Data not available") + newline;
+        String coreCompetencyString = "Core Competency: " + (coreCompetency != null && !coreCompetency.getValue().isEmpty() ? coreCompetency.getValue() : "Data not available");
+
+        return idString + nameString + employerString + locationString + positionTypeString + coreCompetencyString + newline;
+    }
+
 }

@@ -44,4 +44,50 @@ public class JobTest {
         assertFalse(job1.equals(job2));
     }
 
+    @Test
+    //Checks that the toString method starts and ends with new line
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job = new Job();
+        String jobString = job.toString();
+
+        // Use System.lineSeparator() to create the expected line separator character
+        String lineSeparator = System.lineSeparator();
+
+        assertTrue(jobString.startsWith(lineSeparator));
+        assertTrue(jobString.endsWith(lineSeparator));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+            Job job = new Job("Software Engineer", new Employer("Google"),
+                    new Location("Mountain View"), new PositionType("Full-time"), new CoreCompetency("Programming"));
+
+            // System.lineSeparator() to create expected string
+            String expected = "ID: " + job.getId() + System.lineSeparator()
+                    + "Name: " + job.getName() + System.lineSeparator()
+                    + "Employer: " + job.getEmployer().getValue() + System.lineSeparator()
+                    + "Location: " + job.getLocation().getValue() + System.lineSeparator()
+                    + "Position Type: " + job.getPositionType().getValue() + System.lineSeparator()
+                    + "Core Competency: " + job.getCoreCompetency().getValue() + System.lineSeparator();
+
+            String actual = job.toString();
+            assertEquals(expected, actual);
+        }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        // Use System.lineSeparator() to create the expected string
+        String expected = "ID: " + job.getId() + System.lineSeparator()
+                + "Name: Data not available" + System.lineSeparator()
+                + "Employer: Data not available" + System.lineSeparator()
+                + "Location: Data not available" + System.lineSeparator()
+                + "Position Type: Data not available" + System.lineSeparator()
+                + "Core Competency: Data not available" + System.lineSeparator();
+
+        String actual = job.toString();
+        assertEquals(expected, actual);
+    }
+
 }
