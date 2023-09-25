@@ -55,6 +55,7 @@ public class JobTest {
 
         assertTrue(jobString.startsWith(lineSeparator));
         assertTrue(jobString.endsWith(lineSeparator));
+
     }
 
     @Test
@@ -70,7 +71,7 @@ public class JobTest {
                     + "Position Type: " + job.getPositionType().getValue() + System.lineSeparator()
                     + "Core Competency: " + job.getCoreCompetency().getValue() + System.lineSeparator();
 
-            String actual = job.toString();
+        String actual = job.toString();
             assertEquals(expected, actual);
         }
 
