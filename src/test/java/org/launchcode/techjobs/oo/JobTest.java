@@ -47,7 +47,7 @@ public class JobTest {
     @Test
     //Checks that the toString method starts and ends with new line
     public void testToStringStartsAndEndsWithNewLine() {
-        Job job = new Job();
+        Job job = new Job("Software Engineer", new Employer("Google"), new Location("Mountain View"), new PositionType("Full-time"), new CoreCompetency("Programming"));
         String jobString = job.toString();
 
         // Use System.lineSeparator() to create the expected line separator character
@@ -60,8 +60,7 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
-            Job job = new Job("Software Engineer", new Employer("Google"),
-                    new Location("Mountain View"), new PositionType("Full-time"), new CoreCompetency("Programming"));
+            Job job = new Job("Software Engineer", new Employer("Google"), new Location("Mountain View"), new PositionType("Full-time"), new CoreCompetency("Programming"));
 
             // System.lineSeparator() to create expected string
             String expected = "ID: " + job.getId() + System.lineSeparator()
@@ -71,7 +70,7 @@ public class JobTest {
                     + "Position Type: " + job.getPositionType().getValue() + System.lineSeparator()
                     + "Core Competency: " + job.getCoreCompetency().getValue() + System.lineSeparator();
 
-        String actual = job.toString();
+            String actual = job.toString();
             assertEquals(expected, actual);
         }
 
