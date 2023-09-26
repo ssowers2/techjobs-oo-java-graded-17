@@ -94,14 +94,15 @@ public class Job {
 
     @Override
     public String toString() {
-        String idString = "ID: " + id + System.lineSeparator();
+        String idString =
+                System.lineSeparator() + "ID: " + id + System.lineSeparator();
         String nameString = "Name: " + (name != null && !name.isEmpty() ? name : "Data not available") + System.lineSeparator();
         String employerString = "Employer: " + (employer != null && !employer.getValue().isEmpty() ? employer.getValue() : "Data not available") + System.lineSeparator();
         String locationString = "Location: " + (location != null && !location.getValue().isEmpty() ? location.getValue() : "Data not available") + System.lineSeparator();
         String positionTypeString = "Position Type: " + (positionType != null && !positionType.getValue().isEmpty() ? positionType.getValue() : "Data not available") + System.lineSeparator();
         String coreCompetencyString = "Core Competency: " + (coreCompetency != null && !coreCompetency.getValue().isEmpty() ? coreCompetency.getValue() : "Data not available") + System.lineSeparator();
 
-        return idString + nameString + employerString + locationString + positionTypeString + coreCompetencyString + System.lineSeparator();
+        return idString + nameString + employerString + locationString + positionTypeString + coreCompetencyString;
     }
 
 }

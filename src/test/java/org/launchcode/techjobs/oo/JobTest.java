@@ -63,7 +63,8 @@ public class JobTest {
             Job job = new Job("Software Engineer", new Employer("Google"), new Location("Mountain View"), new PositionType("Full-time"), new CoreCompetency("Programming"));
 
             // System.lineSeparator() to create expected string
-            String expected = "ID: " + job.getId() + System.lineSeparator()
+            String expected =
+                    System.lineSeparator() + "ID: " + job.getId() + System.lineSeparator()
                     + "Name: " + job.getName() + System.lineSeparator()
                     + "Employer: " + job.getEmployer().getValue() + System.lineSeparator()
                     + "Location: " + job.getLocation().getValue() + System.lineSeparator()
@@ -79,7 +80,8 @@ public class JobTest {
         Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
 
         // Use System.lineSeparator() to create the expected string
-        String expected = "ID: " + job.getId() + System.lineSeparator()
+        String expected =
+                System.lineSeparator() + "ID: " + job.getId() + System.lineSeparator()
                 + "Name: Data not available" + System.lineSeparator()
                 + "Employer: Data not available" + System.lineSeparator()
                 + "Location: Data not available" + System.lineSeparator()
